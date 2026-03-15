@@ -51,7 +51,7 @@ pipeline {
                 registerDeployedArtifactMetadata(
                     id: "${env.ARTIFACT_ID}",
                     url: "docker.io/hemaladev57/h-e2e-dm:1.0.1",
-                    targetEnvironment: "Production",
+                    targetEnvironment: "PREPROD",
                     labels: "prod"
                 )    
                 echo 'Deploying...'
