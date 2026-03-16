@@ -15,4 +15,8 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
       - name: Build
+        with:
+          version: 1.0.0
+          url: docker.io/test/artifact/cbp:1.0.0
+          name: TestArtifactCBP
         uses: cloudbees-io/register-build-artifact@v2
