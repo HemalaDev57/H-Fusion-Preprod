@@ -15,4 +15,6 @@ jobs:
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
       - name: deploy
+        with:
+          artifact-id: ec0d4239-3679-4661-b11f-7633b86bd5a5
         uses: cloudbees-io/register-deployed-artifact@v2
