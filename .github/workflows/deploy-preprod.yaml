@@ -17,6 +17,7 @@ jobs:
         id: register-build-artifact
         uses: cloudbees-io-gha/register-build-artifact@v3
         with:
+          cloudbees-url: "https://api.saas-preprod.beescloud.com"
           name: h-artifact-gha-bb
           url: "https://example.com/h-artifact-gha/1.0.0"
           version: 1.0.0
@@ -27,6 +28,7 @@ jobs:
         uses: docker://public.ecr.aws/cloudbees/actions/gha-register-deployed-artifact:main-21ff62f64e2c10767908b65f11a496c4f9a78891
         id: register-deployed-artifact
         with:
+          cloudbees-url: "https://api.saas-preprod.beescloud.com"
           artifact-id: ${{ steps.register-build-artifact.outputs.cbp_artifact_id }}
           target-environment: Production
           labels: test
