@@ -17,7 +17,7 @@ jobs:
         id: register-build-artifact
         uses: cloudbees-io-gha/register-build-artifact@v3
         with:
-          name: h-artifact-gha
+          name: h-artifact-gha-bb
           url: "https://example.com/h-artifact-gha/1.0.0"
           version: 1.0.0
       - name: Print artifact id
