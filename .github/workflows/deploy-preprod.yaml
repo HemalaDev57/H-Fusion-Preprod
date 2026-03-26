@@ -27,8 +27,8 @@ jobs:
         - name: Checkout deployment metrics action                                                                                                                                                                                                  
           uses: actions/checkout@v4                                                                                                                                                                                                                 
           with:                                                                                                                                                                                                                                     
-            repository: your-org/gha-register-deployed-artifact                                                                                                                                                                                     
-            ref: your-branch-name                                                                                                                                                                                                                   
+            repository: calculi-corp/gha-register-deployed-artifact                                                                                                                                                                                     
+            ref: main                                                                                                                                                                                                                   
             token: ${{ secrets.GH_PAT }}
             path: ./.github/actions/register-deployed-artifact                                                                                                                                                                                      
         - name: Register deployed artifact
