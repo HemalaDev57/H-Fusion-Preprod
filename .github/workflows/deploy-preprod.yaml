@@ -24,11 +24,11 @@ jobs:
         - name: Print artifact id                                                                                                                                                                                                                   
           run: |                                                                                                                                                                                                                                    
             echo '${{ steps.register-build-artifact.outputs.cbp_artifact_id }}'                                                                                                                                                                     
-        - name: Register deployed artifact                                                                                                                                                                                                            
+        - name: Register deployed artifact
           uses: docker://public.ecr.aws/cloudbees/actions/gha-register-deployed-artifact:main-8d819ee6c37734d240bc3e399c7515d85aa14f76
-          id: register-deployed-artifact                                                                                                                                                                                                              
-          with:                                                                                                                                                                                                                                       
-            cloudbees-url: "https://api.saas-preprod.beescloud.com"                                                                                                                               
-            target-environment: "Production"                                                                                                                                                          
-            artifact-id: ${{ steps.register-build-artifact.outputs.cbp_artifact_id }}                                                                                                                 
-            labels: "test"                          
+          id: register-deployed-artifact
+          env:
+            CLOUDBEES_API_URL: "https://api.saas-preprod.beescloud.com"
+            TARGET_ENVIRONMENT: "Production"
+            ARTIFACT_ID: ${{ steps.register-build-artifact.outputs.cbp_artifact_id }}
+            DEPLOYMENT_LABELS: "test"                          
