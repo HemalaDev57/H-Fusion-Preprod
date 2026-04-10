@@ -49,7 +49,7 @@ pipeline {
             steps {
                 echo "Artifact ID : ${env.ARTIFACT_ID}"
                 registerDeployedArtifactMetadata(
-                    id: "${env.ARTIFACT_ID}",
+                    artifactId: "${env.ARTIFACT_ID}",
                     targetEnvironment: "PREPROD",
                     labels: "prod"
                 )    
@@ -97,13 +97,13 @@ pipeline {
             steps {
                 echo "Artifact ID : ${env.ARTIFACT_ID}"
                 registerDeployedArtifactMetadata(
-                    id: "${env.ARTIFACT_ID}",
+                    artifactId: "${env.ARTIFACT_ID}",
                     targetEnvironment: "Production",
                     labels: "prod"
                 )    
                 echo "Artifact ID : ${env.ARTIFACT_ID_1}"
                 registerDeployedArtifactMetadata(
-                    id: "${env.ARTIFACT_ID_1}",
+                    artifactId: "${env.ARTIFACT_ID_1}",
                     targetEnvironment: "Production",
                     labels: "prod"
                 )    
