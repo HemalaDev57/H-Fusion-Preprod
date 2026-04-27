@@ -2,7 +2,8 @@ name: register-artifact-from-github
 on:                                                                                                                                                                                                                                               
     push                                                                                                                                                                                                                                            
 jobs:                                                                                                                                                                                                                                             
-    register-artifact:                                                                                                                                                                                                                              
+    register-artifact:   
+      name: "register build artifact"
       runs-on: ubuntu-latest
       permissions:                                                                                                                                                                                                                                  
         id-token: write                                                                                                                                                                                                                             
