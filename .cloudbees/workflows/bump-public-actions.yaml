@@ -26,7 +26,7 @@ jobs:
           echo "changed=false" >> $CLOUDBEES_OUTPUTS/result
           echo "Inside"
           echo "set"
-          echo $CLOUDBEES_OUTPUTS/result
+          echo ${{ steps.check-changes.outputs.result }}
       - name: Bump all changed actions
         if: ${{ steps.check-changes.outputs.result == 'changed=true' }}
         uses: docker://alpine:latest
