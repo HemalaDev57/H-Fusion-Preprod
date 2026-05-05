@@ -27,6 +27,9 @@ jobs:
           echo "Inside"
           echo "set"
           echo $CLOUDBEES_OUTPUTS/result
+          echo "=== Debug: Result file ==="                                                                                                                                                                                                             
+          cat $CLOUDBEES_OUTPUTS/result                                                                                                                                                                                                                 
+          echo "=== End Debug ===" 
       - name: Bump all changed actions
         if: ${{ steps.check-changes.outputs.result == 'changed=true' }}
         uses: docker://alpine:latest
