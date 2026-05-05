@@ -1,0 +1,36 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: Bump Public Action Images
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  scm-token-own: read
+
+jobs:
+  bump-actions:
+    if: ${{ cloudbees.scm.branch == 'main' }}
+    steps:
+      - name: Checkout
+        uses: cloudbees-io/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Check if action_artifacts.json changed
+        id: check-changes
+        uses: docker://alpine/git:latest
+        run: |
+          if git diff --name-only HEAD~1 HEAD | grep -q "versioning/action_artifacts.json"; then
+            echo "changed=true" >> $CLOUDBEES_OUTPUTS/result
+          else
+            echo "changed=false" >> $CLOUDBEES_OUTPUTS/result
+          fi
+
+      - name: Bump all changed actions
+        if: ${{ steps.check-changes.outputs.result == 'changed=true' }}
+        uses: ./actions/bump-public-action-image
+        run: |
+          echo 'inside'
