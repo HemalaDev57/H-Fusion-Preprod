@@ -23,12 +23,7 @@ jobs:
         id: check-changes
         uses: docker://alpine/git:latest
         run: |
-          if true; then
-            echo "changed=true" >> $CLOUDBEES_OUTPUTS/result
-          else
-            echo "changed=false" >> $CLOUDBEES_OUTPUTS/result
-          fi
-
+          echo "changed=true" >> $CLOUDBEES_OUTPUTS/result
       - name: Bump all changed actions
         if: ${{ steps.check-changes.outputs.result == 'changed=true' }}
         uses: docker://alpine:latest
