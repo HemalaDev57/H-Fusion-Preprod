@@ -38,4 +38,6 @@
                                                                                                                                                                                                                                                     
         - name: Bump all changed actions                                                                                                                                                                                                            
           if: ${{ steps.check-changes.outputs.result == 'true' }}                                                                                                                                                                                   
-          uses: ./actions/bump-public-action-image  
+          uses: docker://alpine:latest
+          run: |
+            echo 'inside'
