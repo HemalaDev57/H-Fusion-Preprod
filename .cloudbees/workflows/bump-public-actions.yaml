@@ -23,7 +23,7 @@ jobs:
         id: check-changes
         uses: docker://alpine/git:latest
         run: |
-          echo "changed=false" >> $CLOUDBEES_OUTPUTS/result
+          echo "changed=true" >> $CLOUDBEES_OUTPUTS/result
           echo "Inside"
           echo "set"
           echo $CLOUDBEES_OUTPUTS/result
